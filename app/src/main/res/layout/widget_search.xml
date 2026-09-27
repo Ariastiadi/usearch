@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/widget_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="4dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/bar_bg"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingStart="18dp"
+        android:paddingEnd="18dp">
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:alpha="0.7"
+            android:contentDescription="@null"
+            android:src="@drawable/ic_search" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_weight="1"
+            android:fontFamily="monospace"
+            android:letterSpacing="0.04"
+            android:singleLine="true"
+            android:text="@string/search_hint"
+            android:textColor="@color/us_text_dim"
+            android:textSize="14sp" />
+
+        <ImageView
+            android:layout_width="8dp"
+            android:layout_height="8dp"
+            android:contentDescription="@null"
+            android:src="@drawable/red_dot" />
+
+    </LinearLayout>
+
+</FrameLayout>
