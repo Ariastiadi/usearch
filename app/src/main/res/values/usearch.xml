@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">u search</string>
+    <string name="search_hint">Search apps</string>
+    <string name="no_results">No apps found</string>
+    <string name="widget_description">Tap to search your apps.</string>
+
+    <!-- Nothing-style palette: black, grey, white, one red accent -->
+    <color name="us_black">#FF000000</color>
+    <color name="us_surface">#F21B1B1D</color>
+    <color name="us_outline">#FF2E2E30</color>
+    <color name="us_text">#FFFFFFFF</color>
+    <color name="us_text_dim">#99FFFFFF</color>
+    <color name="us_red">#FFD71921</color>
+    <color name="us_scrim">#99000000</color>
+    <color name="ic_launcher_background">#FFC8B4B5</color>
+
+    <style name="Theme.USearch" parent="android:Theme.Material.NoActionBar">
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowAnimationStyle">@android:style/Animation.Translucent</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+        <item name="android:colorAccent">@color/us_red</item>
+    </style>
+</resources>
