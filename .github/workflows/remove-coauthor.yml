@@ -1,0 +1,25 @@
+name: Remove co-author lines
+
+on:
+  push:
+    branches: [ cleanup-coauthor ]
+
+permissions:
+  contents: write
+
+jobs:
+  rewrite:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Rewrite commit messages
+        run: |
+          export FILTER_BRANCH_SQUELCH_WARNING=1
+          git filter-branch -f --msg-filter 'sed -e "/^Co-Authored-By: Claude/d" -e "/^Claude-Session: /d" | git stripspace' -- main
+          git log --format='%h %an | %s%n%b' -6 main
+          if git log main --format=%B | grep -qi "co-authored-by: claude"; then exit 1; fi
+          git push --force origin main
