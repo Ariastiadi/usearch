@@ -18,8 +18,13 @@ jobs:
 
       - name: Rewrite commit messages
         run: |
+          extra=$(git diff --name-only 79a821f origin/main)
+          if [ "$extra" != ".github/workflows/remove-coauthor.yml" ]; then
+            echo "Unexpected changes after 79a821f: $extra" && exit 1
+          fi
+          git reset --hard 79a821f
           export FILTER_BRANCH_SQUELCH_WARNING=1
           git filter-branch -f --msg-filter 'sed -e "/^Co-Authored-By: Claude/d" -e "/^Claude-Session: /d" | git stripspace' -- main
-          git log --format='%h %an | %s%n%b' -6 main
+          git log --format='%h %an | %s%n%b' -5 main
           if git log main --format=%B | grep -qi "co-authored-by: claude"; then exit 1; fi
           git push --force origin main
